@@ -5,12 +5,6 @@ from .models import Artista
 def inicio(request):
     return render(request,'core\inicio.html')
 
-def formulario(request):
-    artistas= Artista.objects.all()
-    datos = {
-        'artistas': artistas
-    }
-    return render(request,'core\formulario.html', datos)
 
-def form_Artista(request):
-    return render(request,'core/form')
+def formulario(request):
+    return render(request,'core/formulario.html')

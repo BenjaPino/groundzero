@@ -6,4 +6,4 @@ from .models import Artista
 class ArtistaForm(ModelForm):
     class Meta:
         model = Artista
-        field=['Nombre','Descripcion','Imagen']
+        fields=['nombre','descripcion','img_artista']

@@ -16,6 +16,36 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <h1>Listado de pinturas</h1>
+    
+        </div>
+        <div class="row">
+            <table border=1>
+                <tr><td>Nombre</td><td>Descripcion</td><td>Imagen</td></tr>
+                {% for ar in artistas %}
+                <tr><td>{{ar.Nombre}}</td><td>{{ar.Descripcion}}</td><td>{{ar.Imagen}}</td>
+                {% endfor %}
+            </table>
+    
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="" id="formularioartista">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_table}}
+                </div>
+                <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                <div id="error" class="alert alert-danger" role="alert"></div>
+            </form>
+    
+        </div>
+        
+    </div>
     
     
 </body>
