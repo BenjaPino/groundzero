@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import inicio,formulario
+from .views import inicio,formularioArtista
 
 urlpatterns = [
     path('',inicio,name="inicio"),
-    path('formulario',formulario,name="formulario"),
+    path('formularioArtista',formularioArtista,name="formulario"),
     
 ]
