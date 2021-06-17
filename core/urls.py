@@ -6,4 +6,5 @@ urlpatterns = [
     path('formularioArtista',formularioArtista,name="formulario"),
     path('form-mod/<id>',form_mod,name="form_mod"),
     path('form-del/<id>',form_del,name="form_del"),
+    
 ]
