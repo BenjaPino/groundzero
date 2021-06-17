@@ -16,19 +16,21 @@ def inicio(request):
 def formularioArtista(request):
     datos={'form': ArtistaForm()}
     if request.method=="POST":
-        formulario=ArtistaForm(request.POST)
+        formulario=ArtistaForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje']="Artista guardado correctamente"
     return render(request,'core/formularioArtista.html', datos)
 
 def form_mod(request,id):
-    artista = Artista.objects.get(nombre=id)
-    datos = {
-        'form': ArtistaForm(instance=artista)
-        
-    }
-    return render(request,'core/form_mod.html', datos)
+    artista=Artista.objects.get(nombre=id)
+    datos={'form':ArtistaForm(instance=artista)}
+    if request.method=='POST':
+        formulario = ArtistaForm(data=request.POST,instance=artista)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Modificado correctamente"
+    return render(request,'core/form_mod.html',datos)
 
 def form_del(request,id):
     artista = Artista.objects.get(nombre=id)
