@@ -1,4 +1,4 @@
-from core.forms import ArtistaForm
+from .forms import ArtistaForm
 from django.shortcuts import redirect, render
 from .models import Artista
 
@@ -17,8 +17,8 @@ def formularioArtista(request):
     datos={'form': ArtistaForm()}
     if request.method=="POST":
         formulario=ArtistaForm(request.POST)
-        if formulario.is_valid:
-            formulario.save
+        if formulario.is_valid():
+            formulario.save()
             datos['mensaje']="Artista guardado correctamente"
     return render(request,'core/formularioArtista.html', datos)
 
@@ -29,4 +29,9 @@ def form_mod(request,id):
         
     }
     return render(request,'core/form_mod.html', datos)
+
+def form_del(request,id):
+    artista = Artista.objects.get(nombre=id)
+    artista.delete()
+    return redirect(to=inicio)
 

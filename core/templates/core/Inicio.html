@@ -48,10 +48,12 @@
             <td>{{ar.descripcion}}</td>
             <td>{{ar.img_artista}}</td>
             <td><a href="{% url 'form_mod' ar.nombre %}"> Modificar</a></td>
+            <td><a href="{% url 'form_del' ar.nombre %}"> Eliminar</a></td>
             </tr>
             {% endfor %}
         </tbody>
         </table>
+        <a href="{% url 'formulario' %}"> Agregar Artistas</a>
 
     </div>
 </div>
