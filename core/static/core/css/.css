@@ -1,0 +1,11 @@
+.formulario{
+    padding: 20px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 150px;
+    width: fit-content;
+    border-radius: 10px;
+    margin-bottom: 150px;
+    box-shadow: 0 0 30px rgb(85, 117, 72);
+     
+}
