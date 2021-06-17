@@ -17,47 +17,40 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <h1>
-                Hola Es una pagina de prueba
-            </h1>
-        </div>
         {% load static %}
         <div class="row">
-            <img src="{% static 'core/img/fondoarriba.jpg'%}" alt="">
+            <img src="{% static 'core/img/fondoarriba.jpg'%}" alt="" width="300px" height="300px">
         </div>
-            <div class="row">
-                <form action="procesar.php" method="post" id="procesar">
-                    <label for="nombre">Nombre: </label>
-                    <input id="nombre" class="form-control" type="text" name="nombre">
-                    <div class="form-group">
-                        <label for="email"> Correo Electronico: </label>
-                        <input id="email" class="form-control" type="text" name="email">
 
-                    </div>
-                    <input type="submit" class="btn btn-danger" id="enviar"  value="Enviar">
-                    <input type="reset" class="btn btn-primary" id="limpiar"  value="Limpiar">
-                    <div id="error" class="alert alert-danger" role="alert">
-
-                    </div>
-                </form>
-
-            </div>
 
         
 
     </div>
     <div class="container">
     <div class="row">
-        <h1>Listado de pinturas</h1>
+        <h1>Listado de Artistas</h1>
 
     </div>
     <div class="row">
-        <table border=1>
-            <tr><td>Nombre</td><td>Descripcion</td><td>Imagen</td></tr>
+        <table class="table">
+            <thead>
+            <tr><th scope="col">Nombre</th><th scope="col">Descripcion</th>
+                <th scope="col"> Imagen</th>
+                <th scope="col"> Opciones
+                </th>
+            </tr>
+
+            </thead>  
+            <tbody>
             {% for ar in artistas %}
-            <tr><td>{{ar.Nombre}}</td><td>{{ar.Descripcion}}</td><td>{{ar.Imagen}}</td>
+            <tr>
+            <td>{{ar.nombre}}</td>
+            <td>{{ar.descripcion}}</td>
+            <td>{{ar.img_artista}}</td>
+            <td><a href="{% url 'form_mod' ar.nombre %}"> Modificar</a></td>
+            </tr>
             {% endfor %}
+        </tbody>
         </table>
 
     </div>
