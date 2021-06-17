@@ -37,3 +37,4 @@ def form_del(request,id):
     artista.delete()
     return redirect(to=inicio)
 
+
