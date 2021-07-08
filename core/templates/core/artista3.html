@@ -1,0 +1,66 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+
+
+
+<div class="container">
+    <div class="resumen">
+      <p><h4>
+        Miguel Antonio, hombre de 35 años y residente de Los Andes, lleva aproximadamente 15 años de su vida 
+        dedicandose a tiempo completo a la realizacion de obras de arte. Comenzo en su casa luego de ver por la 
+        television un concurso de obras de artes y tomo la decision de dedicarse al arte para ser el mejor de la
+        region primeramente, para luego comenzar su camino a ser el mejor del pais.
+      </h4></p>
+      <p><h5>
+        Aqui se pueden observar algunas de sus obras que ha decisido compartir con todo el publico que se interese
+        en sus obras de arte y su tecnica para realizarlas.</h5></p>
+        <div class="card mb-3" style="max-width: 1920px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static '\core\img\obra5.jpg'%}" alt="logo" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Nombre: Terre de camargue</h5>
+                <p class="card-text">Historia: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis efficitur ultrices.
+                Donec venenatis accumsan nibh. Sed elementum velit non purus dapibus, a placerat sapien blandit. 
+                Vestibulum euismod lacinia enim sodales auctor </p>
+                <p class="card-text">Descripcion: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis efficitur ultrices.
+                  Donec venenatis accumsan nibh. Sed elementum velit non purus dapibus, a placerat sapien blandit. 
+                  Vestibulum euismod lacinia enim sodales auctor</p>
+                <p class="card-text">Precio: $19.000</p>
+                <p class="card-text">Tecnica usada: Acrílico, pintura en aerosol </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <div class="clearfix-padding">
+
+    </div>
+        <div class="card mb-3" style="max-width: 1920px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static '\core\img\obra6.png'%}" alt="logo" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Nombre: Plugia 3</h5>
+                <p class="card-text">Historia:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis efficitur ultrices.
+                Donec venenatis accumsan nibh. Sed elementum velit non purus dapibus, a placerat sapien blandit. 
+                Vestibulum euismod lacinia enim sodales auctor </p>
+                <p class="card-text">Descripcion: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis efficitur ultrices.
+                  Donec venenatis accumsan nibh. Sed elementum velit non purus dapibus, a placerat sapien blandit. 
+                  Vestibulum euismod lacinia enim sodales auctor</p>
+                <p class="card-text">Precio: $29.999</p>
+                <p class="card-text">Tecnica usada: Acrílico </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  {% endblock %}
