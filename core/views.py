@@ -1,4 +1,4 @@
-from .forms import ArtistaForm
+from .forms import ArtistaForm, UsuarioForm
 from django.shortcuts import redirect, render
 from .models import Artista
 
@@ -37,4 +37,34 @@ def form_del(request,id):
     artista.delete()
     return redirect(to=inicio)
 
+
+def home(request):
+    return render(request, "core/home.html")
+
+def artista1(request):
+    return render(request, "core/artista1.html")
+
+def artista2(request):
+    return render(request, "core/artista2.html")
+
+def artista3(request):
+    return render(request, "core/artista3.html")
+
+def iniciarsesion(request):
+    datos={'form': UsuarioForm()}
+    if request.method=="GET":
+        formulario=UsuarioForm(request.GET, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje']="Sesion iniciada"
+    return render(request,'core/iniciarsesion.html', datos)
+
+def registrar(request):
+    datos={'form': UsuarioForm()}
+    if request.method=="POST":
+        formulario=UsuarioForm(request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje']="Usuario creado correctamente"
+    return render(request,'core/registrar.html', )
 

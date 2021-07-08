@@ -24,3 +24,12 @@ class Pintura(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Usuario(models.Model):
+    nombre = models.CharField(validators=[MinLengthValidator(2)],max_length=50,verbose_name="Nombre Usuario")
+    email = models.EmailField(max_length=200,verbose_name="Email")
+    password = models.CharField(verbose_name="password",max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
