@@ -1,6 +1,8 @@
-from .forms import ArtistaForm, UsuarioForm
+from django.core.checks import messages
+from .forms import ArtistaForm, CustomUserCreation, UsuarioForm, UserCreationForm
 from django.shortcuts import redirect, render
 from .models import Artista
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -52,19 +54,26 @@ def artista3(request):
 
 def iniciarsesion(request):
     datos={'form': UsuarioForm()}
-    if request.method=="GET":
-        formulario=UsuarioForm(request.GET, files=request.FILES)
-        if formulario.is_valid():
-            formulario.save()
-            datos['mensaje']="Sesion iniciada"
-    return render(request,'core/iniciarsesion.html', datos)
-
-def registrar(request):
-    datos={'form': UsuarioForm()}
     if request.method=="POST":
         formulario=UsuarioForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje']="Usuario creado correctamente"
-    return render(request,'core/registrar.html', )
+            datos['mensaje']="Artista guardado correctamente"
+            return redirect(to="home")
+    return render(request,'core/formularioArtista.html', datos)
+
+def registrar(request):
+    data={
+        'form':CustomUserCreation()
+    }
+    if request.method=='POST':
+        formulario = CustomUserCreation(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request,user)
+            messages.Info(request,"Registrado correctamente")
+            return redirect(to="home")
+        data["form"] = formulario
+    return render(request, 'core/registrar.html',data)
 

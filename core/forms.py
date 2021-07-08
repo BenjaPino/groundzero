@@ -3,6 +3,7 @@ from django.db.models import fields
 from django.forms import ModelForm, widgets
 from rest_framework.utils.field_mapping import ClassLookupDict
 from .models import Artista, Usuario
+from django.contrib.auth.forms import UserCreationForm
 
 class ArtistaForm(ModelForm):
     class Meta:
@@ -16,3 +17,6 @@ class UsuarioForm(ModelForm):
         widgets = {
             'password' : forms.PasswordInput()
         }
+
+class CustomUserCreation(UserCreationForm):
+    pass
